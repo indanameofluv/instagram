@@ -35,6 +35,8 @@ const Post = ({ post }: {post:any}) => {
             <PostFooter post={post} />
             <Likes post={post} />
             <Caption post={post} />
+            <CommentsSection post={post} />
+            <Comments post={post} />
             {/* <Comments post={post} /> */}
         </View>
     );
@@ -42,7 +44,7 @@ const Post = ({ post }: {post:any}) => {
 
 const PostHeader = ({ post }: {post:any}) => (
     <View>
-        <View         style={{
+        <View style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
             margin: 5,
@@ -94,6 +96,8 @@ const PostFooter = ({ post }: {post:any}) => (
     </View>
 ); 
 
+// Featherのbookmark入れ替えるか？？？？https://img.icons8.com/external-bearicons-detailed-outline-bearicons/452/external-Save-social-media-bearicons-detailed-outline-bearicons.png
+
 const Likes = ({post}: {post: any}) => (
     <TouchableOpacity style={{ flex: 1, flexDirection: 'row', marginTop: 4, }}>
         <Text style={{ marginLeft: 9, marginRight: 5, fontSize: 14, fontWeight: '600' }}>{post.likes.toLocaleString('en')} likes</Text>
@@ -108,6 +112,36 @@ const Caption = ({post}: {post: any}) => (
         </Text>
     </View>
 );
+
+const CommentsSection = ({ post }: {post: any}) => (
+    <View style={{ marginTop:5, marginLeft: 9 }}>
+        {!!post.comments.length && (
+            <Text style={{ color: 'grey' }}>
+                View{post.comments.length > 1 ? ' all' : ''} {post.comments.length}{'  '}
+                {post.comments.length > 1 ? 'comments' : 'comment'}
+            </Text>
+        )}
+    </View>
+);
+
+const Comments = ({post}: {post: any}) => (
+    <View>
+        {post.comments.map((comment: any, index: any) => (
+            <View key={index} style={{ flexDirection: 'row', marginTop: 5 }}>
+                <Text>
+                    <Text style={{ fontWeight: '600' }}>{comment.user}</Text>{' '}
+                    {comment.comment}
+                </Text>
+            </View>
+        ))}
+    </View>
+);
+
+// what does !! mean in react native??? you gotta search it!!!
+
+// 0 comments 
+// 1comments
+// greater than 2 comments
 
 {/* // const Comments = ({post}: {post: any}) => (
 //     <View>

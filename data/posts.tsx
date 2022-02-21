@@ -10,12 +10,7 @@ export const POSTS = [
         comments: [
             {
                 user: 'theqazman',
-                comment: 'Wow! This build looks fire. Super excited avout this🚀'
-            },
-            {
-                user: 'amaanath.dev',
-                comment:
-                    "Once I wake up, I'll finally be ready to code this up!"
+                comment: 'Wow! This build looks fire. Super excited avout this🚀 I am humanoid.'
             },
         ],
     },
@@ -26,15 +21,6 @@ export const POSTS = [
         caption: 'Train Ride to Hogwarts. 😂',
         profile_picture: USERS[1].image,
         comments: [
-            {
-                user: 'theqazman',
-                comment: 'Wow! This build looks fire. Super excited avout this🚀'
-            },
-            {
-                user: 'amaanath.dev',
-                comment:
-                    "Once I wake up, I'll finally be ready to code this up!"
-            },
         ],
     },
     {

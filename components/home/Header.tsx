@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function Header() {
+
+export default function Header(props: any) {
     return (
         <View style={styles.container}>
            <TouchableOpacity>
             <Image
               style={styles.logo} 
-              source={require('../../assets/logo.png')} 
+              source={require('../../assets/logo.png')}
             />
            </TouchableOpacity>
 
