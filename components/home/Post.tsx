@@ -5,27 +5,6 @@ import { Feather, Ionicons } from '@expo/vector-icons';
 
 import { POSTS } from '../../data/posts';
 
-// const postFooterIcons = [
-//     {
-//         name: 'Like',
-//         imageUrl: ''
-//     },
-//     {
-//         name: 'Comment',
-//         imageUrl: ''
-//     },
-//     {
-//         name: 'Share',
-//         imageUrl: ''
-//     },
-// ] 
-
-// const heartColor = () => {
-//     return (
-
-//     );
-// }
-
 const Post = ({ post }: {post:any}) => {
     return (
         <View style={{ marginBottom: 30 }}>

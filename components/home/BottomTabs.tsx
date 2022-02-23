@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity,StyleSheet } from 'react-native';
 import { AntDesign, Entypo, FontAwesome, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Divider } from 'react-native-elements';
+import iconSet from '@expo/vector-icons/build/FontAwesome5';
 
 
 export const BottomTabIcons = [
@@ -36,36 +37,60 @@ const BottomTabs =({icons}: {icons: any}) => {
     const [activeTab, setActiveTab] = useState('Home');
     
     const Icon = ({icon}: {icon: any}) => (
-        <TouchableOpacity onPress={() => setActiveTab(icon.name)}>
-            <Image source={{uri: icon.inactive}} style={styles.icon}/>
+        <TouchableOpacity 
+            onPress={
+                () => setActiveTab(icon.name)
+            }
+        >
+            <Image 
+                source={{uri: activeTab == icon.name ? icon.active : icon.inactive}} 
+                style={[
+                    styles.icon,
+                     icon.name == 'Profile' ? styles.profilePic() : null,
+                     activeTab == 'Profile' && icon.name == activeTab ? styles.profilePic(activeTab) : null,
+                ]}
+            />
         </TouchableOpacity>
     );
     return (
-        <View style={styles.container}>
-            {icons.map((icon: any, index: number) => (
-                <Icon  icon={icon} key={index}/>
-            ))}
+        <View style={styles.wrapper}>
+            <Divider width={1} orientation='vertical' />
+            <View style={styles.container}>
+                {icons.map((icon: any, index: number) => (
+                    <Icon  icon={icon} key={index}/>
+                ))}
+            </View>
         </View>
     );
 }
 //ここのiconとindexはなぜタイプの指定をしなくてはならないのか謎で仕方がないのである
 
 const styles = StyleSheet.create({
-    container: {
+    wrapper: {
+        position: 'absolute',
+        width: '100%',
+        bottom: '3%',
+        zIndex: 999,
+        backgroundColor: '#fff'
+    },
+    container: { 
         flexDirection: 'row',
         justifyContent: 'space-between',
         height: 50,
-        paddingTop: 20,
+        paddingTop: 10,
         paddingRight:20,
         paddingLeft: 20,
     },
     icon: {
         width: 30,
         height: 30,
-        borderRadius: 25,
-    }
+    },
+    profilePic: (activeTab = '') => ({
+        borderRadius: 50,
+        borderWidth: activeTab == 'Profile' ? 2 : 0,
+        borderColor: 'black',
+    }),
 });
-
 // const styles = StyleSheet.create({
 //     container: {
 //         flexDirection: 'row',

@@ -9,9 +9,9 @@ import Post from '../components/home/Post';
 import {POSTS} from '../data/posts';
 import BottomTabs, { BottomTabIcons } from '../components/home/BottomTabs';
 
-useEffect(() => {
-    window.scrollTo(0,0)
-}, []);
+// useEffect(() => {
+//     window.scrollTo(0,0)
+// }, []);
 
 const HomeScreen = () => {
     return(
