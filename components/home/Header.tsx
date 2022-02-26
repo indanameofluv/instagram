@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 
-export default function Header(props: any) {
+export default function Header({navigation}: any) {
     return (
         <View style={styles.container}>
            <TouchableOpacity>
@@ -13,7 +13,7 @@ export default function Header(props: any) {
            </TouchableOpacity>
 
            <View style={styles.iconsContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('NewPostScreen')}>
                 <Image
                     style={styles.icon}
                     source={require('../../assets/plus-square.png')} 

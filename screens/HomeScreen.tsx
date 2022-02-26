@@ -13,11 +13,11 @@ import BottomTabs, { BottomTabIcons } from '../components/home/BottomTabs';
 //     window.scrollTo(0,0)
 // }, []);
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}: any) => {
     return(
         <SafeAreaProvider>
             <SafeAreaView style={styles.container}>
-                <Header />
+                <Header navigation={navigation}/>
                 <Stories />
                 <ScrollView>
                     {POSTS.map((post, index) => (

@@ -3,10 +3,10 @@ import { SafeAreaView } from 'react-native';
 
 import AddNewPost from '../components/newPost/AddNewPost';
 
-const NewPostScreen = () => {
+const NewPostScreen = ({navigation}: any) => {
     return (
-        <SafeAreaView style={{ backgroundColor: 'white', flex: 1 }}>
-            <AddNewPost />
+        <SafeAreaView style={{ backgroundColor: 'black', flex: 1 }}>
+            <AddNewPost navigation={navigation}/>
         </SafeAreaView>
     );
 }

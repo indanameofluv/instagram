@@ -3,35 +3,35 @@ import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 import FormikPostUploader from './FormikPostUploader';
 
-const AddNewPost = () => {
+const AddNewPost = ({navigation}: any) => {
     return (
         <View style={styles.container}>
-            <Header />
-            <FormikPostUploader />
+            <Header navigation={navigation}/>
+            <FormikPostUploader navigation={navigation}/>
         </View>
     );
 }
 
-const Header = () => (
+const Header = ({navigation}: any) => (
     <View style={styles.headerContainer}>
-    <TouchableOpacity>
-        <Image 
-            source={{
-                uri: 'https://img.icons8.com/ios-glyphs/90/000000/back.png'
-            }}
-            style={{ width: 30, height:30 }}
-        />
-    </TouchableOpacity>
-    <Text style={styles.headerText}>New Post</Text>
-    <Text></Text>
-</View>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={{backgroundColor: 'grey',}}>
+            <Image
+                source={{
+                    uri: 'https://img.icons8.com/ios-glyphs/90/000000/back.png'
+                }}
+                style={{ width: 30, height:30 }}
+            />
+        </TouchableOpacity>
+        <Text style={styles.headerText}>New Post</Text>
+        <Text></Text>
+    </View>
 );
 
 //空のテキストを入れ、space-betweenを使えば、二つ目に書かれているコンポーネントは必然的に真ん中になる
 
 const styles = StyleSheet.create({
     container: {
-        marginHorizontal: 10
+        marginHorizontal: 10,
     },
 
     headerContainer: {
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     headerText: {
-        color: 'black',
+        color: 'white',
         fontWeight: '700',
         fontSize: 20,
         marginRight: 25,

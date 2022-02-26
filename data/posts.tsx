@@ -2,7 +2,7 @@ import { USERS } from "./users";
 
 export const POSTS = [
     {
-        imageUrl: 'https://i.pinimg.com/564x/aa/a9/07/aaa907b3583528a41af0cda678431e5b.jpg',
+        imageUrl: 'https://i.pinimg.com/564x/c9/ec/09/c9ec09e4d12bc042947ab1b542c012b9.jpg',
         user: USERS[0].user,
         likes: 7870,
         caption: 'Train Ride to Hogwarts. 😂',
